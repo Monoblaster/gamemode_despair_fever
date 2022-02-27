@@ -11,7 +11,7 @@ function Inventory_Create(%display)
     return %list;
 }
 
-function InventorySlotItemData_Create(%name,%unselectable,%icon,%color)
+function InventorySlotItemData_Create(%name,%icon,%color,%unselectable)
 {
     %dbName = %name @ "Item";
     %function = "datablock ItemData(" @ %dbName @ "){category = \"Tools\";uiName = %name;iconName = %icon;oColorShift = %color !$= \"\";colorShiftColor = %color;unselectable = %unselectable;};";
@@ -24,7 +24,7 @@ function InventorySlotItemData_Create(%name,%unselectable,%icon,%color)
     return "";
 }
 
-function InventorySpace_Create(%name,%capacity,%emptySlotItem,%emptySlotMin,%select,%drop,%use,%equip)
+function InventorySpace_Create(%name,%capacity,%emptySlotItem,%emptySlotMin,%select,%use,%equip,%drop)
 {
     %slot = new ScriptObject(%name)
 	{
@@ -40,7 +40,7 @@ function InventorySpace_Create(%name,%capacity,%emptySlotItem,%emptySlotMin,%sel
         //callbacks
         select = %select;
         drop = %drop;
-        use = %primUse;
+        use = %use;
         equip = %equip;
 	};
 
@@ -76,7 +76,6 @@ function InventorySpace::Equip(%space,%item)
         %slot = %space.getcount() - 1;
 
         %callback = %space.equip;
-        talk(%callback SPC "e");
         if(isFunction(%callback))
         {
             %players = %space.inventory.subscribedPlayers;
@@ -90,7 +89,11 @@ function InventorySpace::Equip(%space,%item)
                 }
             }
         }
+
+        return true;
     }
+
+    return false;
 }
 
 function InventorySpace::Unequip(%space,%item)
@@ -99,6 +102,9 @@ function InventorySpace::Unequip(%space,%item)
     if(%item >= 0)
     {
         %slot = %space.getcount() - 1;
+
+        %space.remove(%item);
+        %space.inventory.Display(false);
 
         %callback = %space.equip;
         if(isFunction(%callback))
@@ -114,10 +120,10 @@ function InventorySpace::Unequip(%space,%item)
                 }
             }
         }
-
-        %space.remove(%item);
-        %space.inventory.Display(false);
+        return true;
     }
+
+    return false;
 }
 
 function Inventory_Push(%player,%inventory)
@@ -184,12 +190,6 @@ function Inventory_DisplayItem(%client,%item,%slot)
     }
 }
 
-function Inventory::Add(%list,%Value,%row,%tag)
-{
-    %value.inventory = %list;
-    return Parent::Add(%list,%Value,%row,%tag);
-}
-
 function Inventory_GetSelectedSpace(%player)
 {
     %tool = %player.currTool;
@@ -197,6 +197,12 @@ function Inventory_GetSelectedSpace(%player)
     %item = %player.slotIndex[%tool];
 
     return %space SPC %item;
+}
+
+function Inventory::Add(%list,%Value,%row,%tag)
+{
+    %value.inventory = %list;
+    return Parent::Add(%list,%Value,%row,%value.getName());
 }
 
 function Inventory::Display(%inventory,%silent)
@@ -211,6 +217,34 @@ function Inventory::Display(%inventory,%silent)
             %client.DisplayInventory(%silent);  
         }
     }
+}
+
+function Inventory::EquipTo(%inventory,%space,%item)
+{
+    %slot = %inventory.GetRow(%space);
+    %success = false;
+    if(%slot >= 0)
+    {
+        %space = %inventory.getValue(%slot);
+
+        %success = %space.equip(%item);        
+    }
+
+    return %success;
+}
+
+function Inventory::UnequipFrom(%inventory,%space,%item)
+{
+    %slot = %inventory.GetRow(%space);
+    %success = false;
+    if(%slot >= 0)
+    {
+        %space = %inventory.getValue(%slot);
+
+        %success = %space.unequip(%item);        
+    }
+
+    return %success;
 }
 
 function GameConnection::DisplayInventory(%client,%silent)
@@ -314,8 +348,7 @@ package Inventory
                     case 4:
                         %type = 1;
                 }
-
-                if(isFunction(%callback))
+                if(isFunction(%callback) && %type !$= "")
                 {
                     call(%callback,%client,%space,%slot,%type,%val);
                     return;
