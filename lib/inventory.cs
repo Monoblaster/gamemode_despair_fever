@@ -1,9 +1,11 @@
-function Inventory_Create(%display)
+function Inventory_Create(%name,%display)
 {
     %list = new ScriptObject()
 	{
 		superClass = "List";
         class = "Inventory";
+
+        name = %name;
 
         display = %display;
 	};
@@ -17,6 +19,7 @@ function InventorySlotItemData_Create(%name,%icon,%color,%unselectable)
     %function = "datablock ItemData(" @ %dbName @ "){category = \"Tools\";uiName = %name;iconName = %icon;oColorShift = %color !$= \"\";colorShiftColor = %color;unselectable = %unselectable;};";
     eval(%function);
     %db = %dbName;
+    %db.size = 1;
     if(isObject(%dbName))
     {
         return %dbName.getId();
@@ -60,20 +63,18 @@ function InventorySpace::CurrentCapacity(%space)
     return %capacity;
 }
 
-function InventorySpace::CanEquip(%space,%item)
+function InventorySpace::CanEquip(%space,%item,%offest)
 {
     %size = %item.size;
-    return %space.CurrentCapacity() >= %size;
+    return (%space.CurrentCapacity() + %offest) >= %size;
 }
 
-function InventorySpace::Equip(%space,%item)
+function InventorySpace::SetSlot(%space,%slot,%item,%silent)
 {
-    if(%space.CanEquip(%item) && isObject(%item))
+    if(%space.CanEquip(%item))
     {
-        %space.add(%item);
-
-        %space.inventory.Display(false);
-        %slot = %space.getcount() - 1;
+        %space.set(%slot,%item);
+        %space.inventory.Display(%silent);
 
         %callback = %space.equip;
         if(isFunction(%callback))
@@ -89,22 +90,17 @@ function InventorySpace::Equip(%space,%item)
                 }
             }
         }
-
         return true;
     }
-
     return false;
 }
 
-function InventorySpace::Unequip(%space,%item)
+function InventorySpace::RemoveSlot(%space,%slot,%silent)
 {
-    %item = %space.FindValue(%item);
-    if(%item >= 0)
+    if(%space.getValue(%slot) >= 0)
     {
-        %slot = %space.getcount() - 1;
-
-        %space.remove(%item);
-        %space.inventory.Display(false);
+        %space.set(%slot,"");
+        %space.inventory.Display(%silent);
 
         %callback = %space.equip;
         if(isFunction(%callback))
@@ -122,8 +118,24 @@ function InventorySpace::Unequip(%space,%item)
         }
         return true;
     }
-
     return false;
+}
+
+function InventorySpace::Equip(%space,%item)
+{
+    %c = 0;
+    while(%space.getValue(%c) !$= "")
+    {
+        %c++;
+    }
+    return %space.setSlot(%c,%item,false);
+}
+
+function InventorySpace::Unequip(%space,%item)
+{
+    %slot = %space.FindValue(%item);
+    return %space.removeSlot(%slot);
+
 }
 
 function Inventory_Push(%player,%inventory)
@@ -156,7 +168,7 @@ function Inventory_Pop(%player)
     Inventory_GetTop(%player).subscribedPlayers.remove(%player);
 
     %stack = %player.inventoryStack;
-    %stack.get(%stack.getCount() - 1);
+    %stack.remove(%stack.getCount() - 1);
 
     %client = %player.client;
     if(isObject(%client))
@@ -195,6 +207,11 @@ function Inventory_GetSelectedSpace(%player)
     %tool = %player.currTool;
     %space = %player.slotSpace[%tool];
     %item = %player.slotIndex[%tool];
+
+    if(%item $= "")
+    {
+        %item = -1;
+    }
 
     return %space SPC %item;
 }
@@ -366,6 +383,11 @@ activatePackage("Inventory");
 
 function Inventory_DefaultDisplay(%client,%inventory,%silent)
 {
+    if(!isObject(%inventory))
+    {
+        return;
+    }
+
     %player = %client.player;
 
     %slot = 0;
@@ -374,27 +396,34 @@ function Inventory_DefaultDisplay(%client,%inventory,%silent)
     {
         %space = %inventory.getValue(%i);
         %slotCount = %space.getCount();
-        for(%j = 0; %j < %slotCount; %j++)
+        %emptyCount = getMin(%space.emptySlotMin,%space.CurrentCapacity());
+        %emptyItem = %space.emptySlotItem;
+        %j = 0;
+        while(%slotCount > 0 || %emptyCount > 0)
         {
             %item = %space.getValue(%j);
+            if(%item $= "")
+            {
+                if(%emptyCount == 0)
+                {
+                    %j++;
+                    continue;
+                }
+                else
+                {
+                    %item = %emptyItem;
+                    %emptyCount--;
+                }
+            }
+
             Inventory_DisplayItem(%client,%item,%slot,%silent);
 
             //sets lookup values for later
             %player.slotSpace[%slot] = %space;
             %player.slotIndex[%slot] = %j;
+            %slotCount -= getMax(%item.size,1);
             %slot++;
-        }
-
-        %emptyCount = getMin(%space.emptySlotMin,%space.CurrentCapacity());
-        %emptyItem = %space.emptySlotItem;
-        for(%j = 0; %j < %emptyCount; %j++)
-        {
-            Inventory_DisplayItem(%client,%emptyItem,%slot,%silent);
-            
-            //sets lookup values for later
-            %player.slotSpace[%slot] = %space;
-            %player.slotIndex[%slot] = "";
-            %slot++;
+            %j++;
         }
     }
 
