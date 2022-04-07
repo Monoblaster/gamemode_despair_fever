@@ -1,17 +1,31 @@
 $DefaultInventoryName = "DespairInventory";
+$DefaultEquipmentName = "DespairEquipment";
 
 function testInventory(%c)
 {
     %client = %c;
     %inventory = Inventory_Create($DefaultInventoryName);
     %emptyHand = InventorySlotItemData_Create("Hand");
-    %emptyPocket = InventorySlotItemData_Create("Pocket");
     %inventory.add(InventorySpace_Create("Hands",2,%emptyHand,2,"handsSelect","inventoryMove","handsEquip","InventoryDrop"));
-    %inventory.add(InventorySpace_Create("Pocket",2,%emptyPocket,2,"inventorySelect","inventoryMove","empty","InventoryDrop"));
+    %emptyPocket = InventorySlotItemData_Create("Pocket");
+    %inventory.add(InventorySpace_Create("Pocket1",1,%emptyPocket,1,"inventorySelect","inventoryMove","empty","InventoryDrop"));
+    %inventory.add(InventorySpace_Create("Pocket2",1,%emptyPocket,1,"inventorySelect","inventoryMove","empty","InventoryDrop"));
+    %inventory.add(InventorySpace_Create("Pocket3",1,%emptyPocket,1,"inventorySelect","inventoryMove","empty","InventoryDrop"));
+    %equipment = InventorySlotItemData_Create("Equipment");
+    %inventory.add(InventorySpace_Create("Equipment",o,%equipment,1,"inventorySelect","EquipmentOpen","empty","empty"));
+
+    %equipment = Inventory_Create($DefaultEquipmentName);
     Inventory_Push(%client.player,%inventory);
 
     return %Inventory;
 }
+
+datablock PlayerData(PlayerTenSlot : PlayerStandardArmor)
+{
+    uiName = "Ten Slot Player";
+    maxTools = 10;
+    maxWeapons = 10;
+};
 
 datablock PlayerData(HandPlayer)
 {
@@ -34,8 +48,102 @@ function gunImage::onFire(%this,%obj,%slot)
             %obj.playThread(3, leftrecoil);
         }
     }
+    else
+    {
+        %obj.playThread(3, shiftAway);
+    }
 		
-	Parent::onFire(%this,%obj,%slot);	
+	Parent::onFire(%this,%obj,%slot);
+}
+
+function Item::onActivate(%obj,%user,%client,%pos,%vec,%hand)
+{
+    %this = %obj.getDatablock();
+    if(Inventory_GetTop(%user).name $= $DefaultInventoryName)
+    {
+        if (%obj.canPickup == 0)
+        {
+            return;
+        }
+        %player = %user;
+        %data = %player.getDataBlock ();
+        %mg = %client.miniGame;
+        if (isObject (%mg))
+        {
+            if (%mg.WeaponDamage == 1)
+            {
+                if (getSimTime () - %client.lastF8Time < 5000)
+                {
+                    return;
+                }
+            }
+        }
+        %canUse = 1;
+        if (miniGameCanUse (%player, %obj) == 1)
+        {
+            %canUse = 1;
+        }
+        if (miniGameCanUse (%player, %obj) == 0)
+        {
+            %canUse = 0;
+        }
+        if (!%canUse)
+        {
+            if (isObject (%obj.spawnBrick))
+            {
+                %ownerName = %obj.spawnBrick.getGroup ().name;
+            }
+            %msg = %ownerName @ " does not trust you enough to use this item.";
+            if ($lastError == $LastError::Trust)
+            {
+                %msg = %ownerName @ " does not trust you enough to use this item.";
+            }
+            else if ($lastError == $LastError::MiniGameDifferent)
+            {
+                if (isObject (%client.miniGame))
+                {
+                    %msg = "This item is not part of the mini-game.";
+                }
+                else 
+                {
+                    %msg = "This item is part of a mini-game.";
+                }
+            }
+            else if ($lastError == $LastError::MiniGameNotYours)
+            {
+                %msg = "You do not own this item.";
+            }
+            else if ($lastError == $LastError::NotInMiniGame)
+            {
+                %msg = "This item is not part of the mini-game.";
+            }
+            commandToClient (%client, 'CenterPrint', %msg, 1);
+            return;
+        }
+        %success = Inventory_GetTop(%user).getValue(0).setSlot(%hand,%this);
+        if(!%success)
+        {
+            %success = Inventory_GetTop(%user).EquipTo("pocket",%this);
+        }
+
+        if(%success)
+        {
+            if (%obj.isStatic ())
+            {
+                %obj.Respawn ();
+            }
+            else 
+            {
+                %obj.delete ();
+            }
+        }
+    }
+    else
+    {
+        %success = Parent::onPickup(%this,%obj,%user,%amount);
+    }
+
+    return %success;
 }
 
 
@@ -88,40 +196,35 @@ function inventoryMove(%client,%space,%slot,%type,%val)
 
     if(%val)
     {
+        %handSpace = %space.inventory.getValue(0);//hands space
         %item = %space.getValue(%slot);
-        //main fire
-        if(%type)
-        {
-            if(%item !$= "")
-            {
-                //item selected for move
-                %player.moveitemBufferItem = %item;
-                %player.moveitemBufferSpace = %space;
-                %player.moveitemBufferSlot = %slot;
-            }
-        }
-        //secondary fire
-        else
-        {
-            %bufferItem = %player.moveitemBufferItem;
-            %bufferSpace = %player.moveitemBufferSpace;
-            %bufferSlot = %player.moveitemBufferSlot;
-            //is there an item to move?
-            if(%bufferItem !$= "" && %bufferItem == %bufferSpace.getValue(%bufferSlot))
-            {
-                
+        %handSlot = !%type;
 
-                //swap slots
-                %success = %space.CanEquip(%bufferItem,%item.size) && %bufferSpace.CanEquip(%item,%bufferItem.size);
-                if(%success)
-                {
-                    %bufferSpace.removeSlot(%bufferSlot,true);
-                    %bufferSpace.setSlot(%bufferSlot,%item,true);
-                    %space.removeSlot(%slot,true);
-                    %space.setSlot(%slot,%bufferItem,true);
-                    %player.moveitemBufferItem = "";
-                }
-            }
+        //prevent swapping with self
+        if(%handSlot == %slot && %handSpace == %space)
+        {
+            return;
+        }
+
+        //if the items being swapped within the same space make sure their item's size is accounted for when checking
+        %handItem = %handSpace.getValue(%handSlot);
+        %itemSize = %item.size;
+        %handItemSize = %handItem.size;
+        if(%handSpace == %space)
+        {
+            %temp = %itemSize;
+            %itemSize += %handItemSize;
+            %handItemSize += %temp;
+        }
+        
+        //swap slots
+        %success = %space.CanEquip(%handItem,%itemSize) && %handSpace.CanEquip(%item,%handItemSize);
+        if(%success)
+        {
+            %space.removeSlot(%slot,true);
+            %space.setSlot(%slot,%handItem,true);
+            %handSpace.removeSlot(%handSlot,true);
+            %handSpace.setSlot(%handSlot,%item,true);
         }
     }
 }
@@ -149,9 +252,6 @@ function handsSelect(%client,%space,%slot,%open)
     else
     {
         %player.itemsDisabled = false;
-
-        //call to get hands back
-        //handsEquip(%client,"Hands",0,true);
     }
 }
 
@@ -247,27 +347,34 @@ package DespairInventory
             if(%client.getClassName() $= "GameConnection")
             {
                 if(!%obj.itemsDisabled && Inventory_GetTop(%obj).name $= $DefaultInventoryName)
-                {   
+                {
                     
                     if(%triggerNum == 0)
                     {
+                        %hand = 1;
                         %bot = %obj.leftHandBot;
                     }
                     
                     if(%triggerNum == 4)
                     {
+                        %hand = 0;
                         %bot = %obj.rightHandBot;
                     }
 
-                    if(%bot !$= "")
+                    if(%bot !$= "" && %bot.getMountedImage(0) != 0)
                     {
                         %bot.setImageTrigger(0,%val);
                         return;
                     }
-                    //try to pickup an item
+                    //try to pickup or activate
                     else
                     {
-
+                        if(%val && (%triggerNum == 0 || %triggerNum == 4))
+                        {
+                            %obj.lastHand = %hand;
+                            %obj.ActivateStuff();
+                            return 0;
+                        }
                     }
                 }
             }
@@ -293,7 +400,7 @@ package DespairInventory
         %object = %player.getObjectMount();
         if(isObject(%object) && %player.isHandBot)
         {
-            if(%object.isFirstPerson() && !%player.getMountedImage(%slot).melee)
+            if(%player.isFirstPerson() && !%player.getMountedImage(%slot).melee)
             {
                 return %player.getCorrectedAimVector(%slot);
             }
@@ -386,154 +493,45 @@ package DespairInventory
         }
     }
 
-    function Armor::onCollision (%this, %obj, %col, %vec, %speed)
-    {
-        if (%obj.getState () $= "Dead")
-        {
-            return;
-        }
-        if (%col.getDamagePercent () >= 1)
-        {
-            return;
-        }
-        %colClassName = %col.getClassName ();
-        if (%colClassName $= "Item")
-        {
-            %client = %obj.client;
-            %colData = %col.getDataBlock ();
-            %i = 0;
-            while (%i < %this.maxTools)
-            {
-                if (%obj.tool[%i] == %colData)
-                {
-                    %obj.pickup (%col);
-                    break;
-                }
-                %i += 1;
-            }
-            
-        }
-
-        parent::onCollision (%this, %obj, %col, %vec, %speed);
-    }
-
-    //getting items
-    function ItemData::onPickup(%this, %obj, %user, %amount)
-    {
-        if(Inventory_GetTop(%user).name $= $DefaultInventoryName)
-        {
-            if (%obj.canPickup == 0)
-            {
-                return;
-            }
-            %player = %user;
-            %client = %player.client;
-            %data = %player.getDataBlock ();
-            if (!isObject (%client))
-            {
-                return;
-            }
-            %mg = %client.miniGame;
-            if (isObject (%mg))
-            {
-                if (%mg.WeaponDamage == 1)
-                {
-                    if (getSimTime () - %client.lastF8Time < 5000)
-                    {
-                        return;
-                    }
-                }
-            }
-            %canUse = 1;
-            if (miniGameCanUse (%player, %obj) == 1)
-            {
-                %canUse = 1;
-            }
-            if (miniGameCanUse (%player, %obj) == 0)
-            {
-                %canUse = 0;
-            }
-            if (!%canUse)
-            {
-                if (isObject (%obj.spawnBrick))
-                {
-                    %ownerName = %obj.spawnBrick.getGroup ().name;
-                }
-                %msg = %ownerName @ " does not trust you enough to use this item.";
-                if ($lastError == $LastError::Trust)
-                {
-                    %msg = %ownerName @ " does not trust you enough to use this item.";
-                }
-                else if ($lastError == $LastError::MiniGameDifferent)
-                {
-                    if (isObject (%client.miniGame))
-                    {
-                        %msg = "This item is not part of the mini-game.";
-                    }
-                    else 
-                    {
-                        %msg = "This item is part of a mini-game.";
-                    }
-                }
-                else if ($lastError == $LastError::MiniGameNotYours)
-                {
-                    %msg = "You do not own this item.";
-                }
-                else if ($lastError == $LastError::NotInMiniGame)
-                {
-                    %msg = "This item is not part of the mini-game.";
-                }
-                commandToClient (%client, 'CenterPrint', %msg, 1);
-                return;
-            }
-            
-            %success = Inventory_GetTop(%user).EquipTo("Hands",%this);
-            if(!%success)
-            {
-                %success = Inventory_GetTop(%user).EquipTo("pocket",%this);
-            }
-
-            if(%success)
-            {
-                if (%obj.isStatic ())
-                {
-                    %obj.Respawn ();
-                }
-                else 
-                {
-                    %obj.delete ();
-                }
-            }
-        }
-        else
-        {
-            %success = Parent::onPickup(%this,%obj,%user,%amount);
-        }
-
-        return %success;
-    }
-
-    function Player::RemoveBody (%obj)
+    function Player::delete(%obj)
     {
         if(isObject(%obj.rightHandBot))
         {
             %obj.rightHandBot.delete();
             %obj.leftHandBot.delete();
         }
-        return Parent::RemoveBody (%obj);
+        Parent::delete(%obj);
+    }
+
+    function Player::getMuzzlePoint(%obj,%slot)
+    {
+        //prevents the player from colliding with the muzzle point
+        %player = %obj.getObjectMount();
+        if(isObject(%player))
+        {
+            %player.setCollisionEnabled(0);
+            %return = Parent::getMuzzlePoint(%obj,%slot);
+            %player.setCollisionEnabled(1);
+        }
+        else
+        {
+            %return = Parent::getMuzzlePoint(%obj,%slot);
+        }
+       
+        return %return;
+    }
+
+    function ShapeBaseData::onPickup(%this, %obj, %user, %amount)
+    {
+        if(Inventory_GetTop(%user).name $= $DefaultInventoryName)
+        {
+            return;
+        }
+        panret::onPickup(%this, %obj, %user, %amount);
     }
 };
 deactivatePackage("DespairInventory");
 activatePackage("DespairInventory");
-
-function Player::getEyeTransformWithoutHeadZ(%this)
-{
-    %angle = mAcos(getWord(%this.getEyeVector(), 2)) - 1.5708;
-    %axisA = getWords(%this.getTransform(), 3, 6);
-    %axisB = vectorCross(%this.getForwardVector(), %this.getUpVector()) SPC %angle;
-
-    return MatrixMultiply(%this.getEyePoint() SPC %axisB, "0 0 0" SPC %axisA);
-}
 
 function Player::getCorrectedAimVector(%this, %slot)
 {
@@ -541,14 +539,14 @@ function Player::getCorrectedAimVector(%this, %slot)
     %maxAdjD = 500;
 
     %aheadVec = "0 " @ %maxAdjD @ " 0";
-    %eyeMat = %this.getEyeTransformWithoutHeadZ();
+    %eyeMat = %this.getEyeTransform();
     %eyePos = getWords(%eyeMat, 0, 2);
     %aheadVec = MatrixMulVector(%eyeMat, %aheadVec);
     %aheadPoint = vectorAdd(%eyePos, %aheadVec);
 
     %muzzlePos = %this.getMuzzlePoint(%slot);
 
-    %ray = containerRayCast(%eyePos, %aheadPoint, $TypeMasks::All, %this.getObjectMount(),%this.getObjectMount().getObjectMount());
+    %ray = containerRayCast(%eyePos, %aheadPoint, $TypeMasks::All, %this.getObjectMount());
     if(%ray)
     {
         %collidePoint = getWords(%ray, 1, 3);
@@ -628,7 +626,7 @@ function WeaponImage::onFire (%this, %obj, %slot)
         }
 		%raycast = containerRayCast (%start, %end, %mask, %obj,%mount);
 		if (%raycast)
-		{
+        {
 			%hitPos = posFromRaycast (%raycast);
 			%eyeDiff = VectorLen (VectorSub (%start, %hitPos));
 			%muzzlepoint = %obj.getMuzzlePoint (%slot);
@@ -700,4 +698,51 @@ function WeaponImage::onFire (%this, %obj, %slot)
 	%p.setScale (%obj.getScale ());
 	MissionCleanup.add (%p);
 	return %p;
+}
+
+function Player::ActivateStuff (%obj)
+{
+    %hand = %Obj.lasthand;
+	%start = %obj.getEyePoint ();
+    %vec = %obj.getEyeVector ();
+    %scale = getWord (%obj.getScale (), 2);
+    %end = VectorAdd (%start, VectorScale (%vec, 10 * %scale));
+    %mask = $TypeMasks::FxBrickObjectType | $TypeMasks::PlayerObjectType | $TypeMasks::ItemObjectType;
+    %search = containerRayCast (%start, %end, %mask, %obj);
+    %victim = getWord (%search, 0);
+    if(%hand == 0)
+    {
+        %obj.playThread (2, "shiftaway");
+    }
+    else
+    {
+        %obj.playThread (3, "leftrecoil");
+    }
+    
+    if (%victim)
+    {
+        %pos = getWords (%search, 1, 3);
+        if (%victim.getType () & $TypeMasks::FxBrickObjectType)
+        {
+            %diff = VectorSub (%start, %pos);
+            %len = VectorLen (%diff);
+            if (%len <= $Game::BrickActivateRange * %scale)
+            {
+                %victim.onActivate (%obj, %player.client, %pos, %vec);
+            }
+        }
+        else if (%victim.getType () & $TypeMasks::ItemObjectType)
+        {
+            %diff = VectorSub (%start, %pos);
+            %len = VectorLen (%diff);
+            if (%len <= 2.5 * %scale)
+            {
+                %victim.onActivate (%obj, %player.client, %pos, %vec, %hand);
+            }
+        }
+        else
+        {
+            %victim.onActivate (%obj, %player.client, %pos, %vec, %hand);
+        }
+    }
 }

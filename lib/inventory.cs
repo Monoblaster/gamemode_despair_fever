@@ -329,11 +329,17 @@ package Inventory
     function ServerCmdDropTool(%client, %position)
     {
         %player = %client.player;
-        if(isObject(%player))
+        if(isObject(%player) && Inventory_getTop(%player) !$= "")
         {
             %word = Inventory_GetSelectedSpace(%player);
             %space = getWord(%word,0);
             %slot = getWord(%word,1);
+
+            //remove the dropping with closed inventory bug
+            if(%slot == -1)
+            {
+                return;
+            }
 
             %callback = %space.drop;
             if(isFunction(%callback))
@@ -399,14 +405,17 @@ function Inventory_DefaultDisplay(%client,%inventory,%silent)
         %emptyCount = getMin(%space.emptySlotMin,%space.CurrentCapacity());
         %emptyItem = %space.emptySlotItem;
         %j = 0;
-        while(%slotCount > 0 || %emptyCount > 0)
+        %safety = 0;
+        while((%slotCount > 0 || %emptyCount > 0) && %safety < 5)
         {
+            %safety++;
             %item = %space.getValue(%j);
             if(%item $= "")
             {
                 if(%emptyCount == 0)
                 {
                     %j++;
+                    %slotCount -= getMax(%item.size,1);
                     continue;
                 }
                 else
@@ -424,6 +433,11 @@ function Inventory_DefaultDisplay(%client,%inventory,%silent)
             %slotCount -= getMax(%item.size,1);
             %slot++;
             %j++;
+        }
+        if(!(%safety < 5))
+        {
+            echo("safety broken");
+            %space.dump();
         }
     }
 
