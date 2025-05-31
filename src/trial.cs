@@ -208,7 +208,6 @@ function despairOnKill(%victim, %attacker, %crit)
 			{
 				%attacker.player.aboutToKill = "";
 				%attacker.killer = true;
-				%victim.killer = false;
 				$pickedKiller = %attacker;
 				%attacker.play2d(KillerJingleSound);
 				%msg = "<color:FF0000>You murdered the killer in cold blood! Now it's your turn to get away with it...";
@@ -301,6 +300,11 @@ function despairCheckInvestigation(%player, %corpse)
 			messageClient(%player.client, '', "\c5You're about to \c3faint\c5...!");
 			%player.setSpeedScale(0.5);
 			%player.passOutSchedule = %player.schedule(2000, knockOut, 30);
+			%player.squeamishFainted = true; //Only one squeamish faint per round, otherwise life is pain
+		}
+		if(!%player.client.killer && %player.character.trait["Narcoleptic"] && !%player.squeamishFainted && !isEventPending(%player.passOutSchedule))
+		{
+			%player.passOutSchedule = %player.schedule(89000, knockOut, 30);
 			%player.squeamishFainted = true; //Only one squeamish faint per round, otherwise life is pain
 		}
 	}
@@ -454,7 +458,7 @@ function despairOnMorning()
 	if (getRandom() <= 0.4 && $Despair::Sandstorm)
 	{
 		//update fog
-		$EnvGuiServer::VisibleDistance = 80;
+		$EnvGuiServer::VisibleDistance = 70;
 		Sky.visibleDistance = $EnvGuiServer::VisibleDistance;
 		$EnvGuiServer::FogDistance = 0;
 		Sky.fogDistance = $EnvGuiServer::FogDistance;
@@ -464,7 +468,7 @@ function despairOnMorning()
 	else
 	{
 		//update fog
-		$EnvGuiServer::VisibleDistance = 130;
+		$EnvGuiServer::VisibleDistance = 110;
 		Sky.visibleDistance = $EnvGuiServer::VisibleDistance;
 		$EnvGuiServer::FogDistance = 100;
 		Sky.fogDistance = $EnvGuiServer::FogDistance;
@@ -536,13 +540,10 @@ function despairOnMorning()
 				messageClient($pickedKiller, '', '<font:Impact:24>  \c3Your closet now contains a \c6box of useful items\c3! Pick it up and open or discard it \c0ASAP\c3!!!');
 				commandToClient($pickedKiller, 'CenterPrint', "\c3Your closet now contains a \c6box of useful items\c3!", 3);
 			}
-															   
-																											 
 		}
 		else
 			messageClient($pickedKiller, '', '<font:Impact:24>\c5Killer box didn\'t spawn because you rejected it.');
 	}
-
 
 	if($days % 4 == 2)
 	{
@@ -1216,7 +1217,7 @@ function DespairEndTrial()
 	{
 		%client = $DefaultMiniGame.member[%i];
 		%player = %client.player;
-		if(%client.killer && isObject(%player))
+		if(%client.killer)
 			continue;
 		if(!%win)
 		{
@@ -1225,7 +1226,7 @@ function DespairEndTrial()
 		}
 		else if(isObject(%player))
 		{
-			%client.AddPoints(2 + %player.correctVote*2); //Correct vote gives you 2 more points
+			%client.AddPoints(3 + %player.correctVote*3); //Correct vote gives you 2 more points
 			%client.innocentWins++;
 			%client.correctVotes += %player.correctVote;
 		}

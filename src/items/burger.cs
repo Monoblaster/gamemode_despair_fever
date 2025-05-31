@@ -53,10 +53,22 @@ function BurgerImage::onEat(%this, %obj, %slot)
             %obj.client.chatMessage("\c5You don't feel like eating at the moment.");
         return;
     }
+	if(%obj.character.trait["Glutton"])
+	{	
+		%obj.health = getMin(%obj.health + 25, %obj.maxHealth);
+		%obj.unMountImage(0);
+		%obj.removeTool(%obj.currTool);
+		%obj.lastEat = $Sim::Time;
+		serverPlay3d("EatSound", %obj.getEyePoint());
+		%obj.addMood(5, "Eating burger gives you extra energy!");
+		%obj.health = getMin(%obj.health + 25, %obj.maxHealth);
+		return;
+	}
 	%obj.unMountImage(0);
 	%obj.removeTool(%obj.currTool);
     %obj.lastEat = $Sim::Time;
 	serverPlay3d("EatSound", %obj.getEyePoint());
 	%obj.addMood(5, "Mmm, that was delicious!");
 	%obj.health = getMin(%obj.health + 25, %obj.maxHealth);
+	
 }

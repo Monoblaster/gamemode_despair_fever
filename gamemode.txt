@@ -27,11 +27,11 @@ ADDON Sound_Beeps
 ADDON Sound_Phone 
 ADDON Sound_Synth4 
 
-//ADDON Vehicle_Pirate_Cannon 
-//ADDON Vehicle_Tank
-//ADDON Weapon_Rocket_Launcher
-//ADDON Projectile_GravityRocket
-//ADDON Vehicle_Jeep 
+ADDON Vehicle_Pirate_Cannon 
+ADDON Vehicle_Tank
+ADDON Weapon_Rocket_Launcher
+ADDON Projectile_GravityRocket
+ADDON Vehicle_Jeep 
 //ADDON Vehicle_Horse
 //ADDON Vehicle_Rowboat 
 ADDON Projectile_Radio_Wave
@@ -45,9 +45,9 @@ ADDON Support_Doors
 //ADDON Support_Player_Persistence
 ADDON Brick_Doors
 
-//ADDON Brick_Halloween
+ADDON Brick_Halloween
 //ADDON Brick_Teledoor
-//ADDON Brick_Christmas_Tree
+ADDON Brick_Christmas_Tree
 
 ADDON Brick_ModTer_BasicPack
 //ADDON Brick_ModTer_InvertedPack
@@ -61,6 +61,13 @@ ADDON Brick_ModTer_BasicPack
 //ADDON Bot_Zombie
 
 ADDON Weapon_Gun
+ADDON Item_Skis
+ADDON Item_Sports
+
+//ADDON Server_SportsBallExploitFix  
+//https://gitlab.com/Queuenard/blockland-glass-purgatory/-/blob/main/Server_SportsBallExploitFix.zip
+
+//ADDON Support_Updater_Privacy
 //ADDON Weapon_Guns_Akimbo
 
 //Add-ons required for the build
@@ -118,7 +125,7 @@ ADDON Tool_NewDuplicator
 ADDON GameMode_Despair_Fever
 
 //EVAL
-ADDON Script_Eval
+//ADDON Script_Eval
 
 // Environment
 $EnvGuiServer::SimpleMode 0

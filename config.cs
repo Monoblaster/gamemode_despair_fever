@@ -9,7 +9,7 @@ $Despair::DisableWepsTimer = 30; //How many seconds until the weps are disabled.
 
 $Despair::MinShutters = 2; //How many shutters should be open from the start.
 //Trial
-$Despair::TrialChatDelay = 3; //Chat delay in seconds to prevent spamming
+$Despair::TrialChatDelay = 1; //Chat delay in seconds to prevent spamming
 $Despair::ChatDelay = 0.75; //Chat delay in seconds to prevent spamming
 $Despair::DiscussPeriod = 420; //7 mins
 $Despair::DiscussExtraLength = 90; //+1:30 mins for every body in trial
@@ -20,8 +20,8 @@ $Despair::CanForceTrial = 90; //1 min 30 seconds have to pass before you can for
 //Sleep
 $Despair::SleepOverjoyed = 75;
 $Despair::SleepHappy = 80;
-$Despair::SleepSad = 100;
-$Despair::SleepDepressed = 110;
+$Despair::SleepSad = 130;
+$Despair::SleepDepressed = 150;
 $Despair::SleepDefault = 90;
 $Despair::SleepKnockout = 30;
 
@@ -29,7 +29,7 @@ $Despair::SleepKnockout = 30;
 $Despair::Mood::Enabled = true;
 //Traits
 $Despair::Traits::Enabled = true;
-
+//Change map to school,mansion,motel,syndrome,campdespair,resort or hood depending on the build.
 $map = "school";
 //MOTEL MAP PREFS:
 if($map $= "motel")
@@ -132,4 +132,107 @@ if($map $= "school")
 	$shutterNum[5] = "Cafeteria";
 	$shutterNum[6] = "Infirmary";
 	$shutterNum[7] = "Tailoring";
+}
+//SYNDROME MAP PREFS:
+if($map $= "syndrome")
+{
+	//Allow sandstorms
+	$Despair::Sandstorm = false;
+
+	$Despair::RoomCount = 18;
+
+	$roomNum[1] = "1";
+	$roomNum[2] = "2";
+	$roomNum[3] = "3";
+	$roomNum[4] = "4";
+	$roomNum[5] = "5";
+	$roomNum[6] = "6";
+	$roomNum[7] = "7";
+	$roomNum[8] = "8";
+	$roomNum[9] = "9";
+	$roomNum[10] = "10";
+	$roomNum[11] = "11";
+	$roomNum[12] = "12";
+	$roomNum[13] = "13";
+	$roomNum[14] = "14";
+	$roomNum[15] = "15";
+	$roomNum[16] = "16";
+	$roomNum[17] = "17";
+	$roomNum[18] = "18 Janitor";
+}
+//CAMP DESPAIR MAP PREFS:
+if($map $= "campdespair")
+{
+	//Allow sandstorms
+	$Despair::Sandstorm = true;
+
+	$Despair::RoomCount = 12;
+	//A House
+	$roomNum[1] = "A1";
+	$roomNum[2] = "A2";
+	$roomNum[3] = "A3";
+	$roomNum[4] = "A4";
+	$roomNum[5] = "A5";
+	//B House
+	$roomNum[6] = "B1";
+	$roomNum[7] = "B2";
+	$roomNum[8] = "B3";
+	$roomNum[9] = "B4";
+	$roomNum[10] = "B5";
+	//Janitor and Landlord House
+	$roomNum[11] = "Janitor";
+	$roomNum[12] = "House";
+}
+//RESORT MAP PREFS:
+if($map $= "resort")
+{
+	//Allow sandstorms
+	$Despair::Sandstorm = true;
+
+	$Despair::RoomCount = 17;
+	//Top Floor
+	$roomNum[1] = "19";
+	$roomNum[2] = "17";
+	$roomNum[3] = "15";
+	$roomNum[4] = "13";
+	$roomNum[5] = "11";
+	$roomNum[6] = "10";
+	$roomNum[7] = "12";
+	$roomNum[8] = "14";
+	$roomNum[9] = "16";
+	$roomNum[10] = "18";
+	//Basement Keys
+	$roomNum[11] = "B1";
+	$roomNum[12] = "B2";
+	$roomNum[13] = "B3";
+	$roomNum[14] = "B4";
+	$roomNum[15] = "B5";
+	$roomNum[16] = "B6";
+	//Shack Key
+	$roomNum[17] = "Shack";
+
+
+}
+//HOOD MAP PREFS:
+if($map $= "hood")
+{
+	//Allow sandstorms
+	$Despair::Sandstorm = true;
+
+	$Despair::RoomCount = 13;
+	//Houses
+	$roomNum[1] = "1 Beige House";
+	$roomNum[2] = "2 Dark Green House";
+	$roomNum[3] = "3 Violet House";
+	$roomNum[4] = "4 Yellow House";
+	$roomNum[5] = "5 Orange House";
+	$roomNum[6] = "6 Blue House";
+	$roomNum[7] = "7 Green House";
+	$roomNum[8] = "8 Red House";
+	$roomNum[9] = "9 Pink House";
+	$roomNum[10] = "10 Lime House";
+	$roomNum[11] = "11 White House";
+	//Shack and campervan
+	$roomNum[12] = "Shack";
+	$roomNum[13] = "Camper Van";
 }

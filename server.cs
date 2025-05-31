@@ -91,12 +91,14 @@ exec("./src/weapons/knife.cs");
 exec("./src/weapons/scalpel.cs"); //Reskinned knife
 exec("./src/weapons/leadpipe.cs");
 exec("./src/weapons/machete.cs");
-// exec("./src/weapons/revolver.cs");
+exec("./src/weapons/revolver.cs");
 exec("./src/weapons/wrench.cs");
 exec("./src/weapons/sledgehammer.cs");
 exec("./src/weapons/taser.cs");
 exec("./src/weapons/shovel.cs");
 exec("./src/weapons/umbrella.cs");
+exec("./src/weapons/handhammer.cs");
+exec("./src/weapons/crowbar.cs");
 
 if (!isObject(IntroPath))
 	exec("./src/campaths/intro.cs");

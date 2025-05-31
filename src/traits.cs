@@ -1,8 +1,8 @@
 $Despair::Traits::Tick = 3000; //miliseconds
 
-$Despair::Traits::Positive = "Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic"; //Medium
+$Despair::Traits::Positive = "Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic	Repairman	Glutton	Medium"; //Medium
 $Despair::Traits::Neutral = "Snorer	Feel No Pain	Hatter	Chain Smoker	Apathetic";
-$Despair::Traits::Negative = "Clumsy	Paranoid	Nervous	Frail	Cold	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic"; //Schizo Narcoleptic
+$Despair::Traits::Negative = "Clumsy	Paranoid	Nervous	Frail	Cold	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Schizo	Narcoleptic"; //Schizo Narcoleptic
 
 //positive
 $Despair::Traits::Description["Investigative"] = "You will get more information from corpses.";
@@ -15,9 +15,11 @@ $Despair::Traits::Description["Loudmouth"] = "Louder speech, as well as a Scream
 $Despair::Traits::Description["Pickpocket"] = "Can loot people even if they're conscious! Can't steal weapons and worn items.";
 $Despair::Traits::Description["Optimistic"] = "Nothing will make you feel depressed!";
 $Despair::Traits::Description["Chekhov's Gunman"] = "Spawn with a golden revolver. Every round you survive you will get a bullet. Make sure to conceal it!";
+$Despair::Traits::Description["Bodybuilder"] = "Faster weapon swings!";
 $Despair::Traits::Description["Repairman"] = "You have a cool Repair kit in the closet.";
+$Despair::Traits::Description["Glutton"] = "Burgers recover more health when eating.";
 //disabled
-$Despair::Traits::Description["Medium"] = "You're not supposed to have this";//"Hear the dead when sleeping...";
+$Despair::Traits::Description["Medium"] = "Hear the dead when sleeping...";
 
 //neutral
 $Despair::Traits::Description["Snorer"] = "Snore loudly when sleeping.";
@@ -40,8 +42,8 @@ $Despair::Traits::Description["Social Anxiety"] = "Being near (living) people fo
 $Despair::Traits::Description["Mood Swings"] = "Your mood is swayed a lot easier.";
 $Despair::Traits::Description["Melancholic"] = "You just can't ever feel happy.";
 //disabled
-$Despair::Traits::Description["Narcoleptic"] = "You're not supposed to have this";//"Randomly pass out.";
-$Despair::Traits::Description["Schizo"] = "You're not supposed to have this";//"Daydreaming and spooky voices!!";
+$Despair::Traits::Description["Narcoleptic"] = "Randomly pass out.";
+$Despair::Traits::Description["Schizo"] = "Daydreaming and spooky voices!!";
 
 function GenerateTraits(%character, %client)
 {
@@ -67,16 +69,16 @@ function GenerateTraits(%character, %client)
 			%typeStr = "positive";
 			%traitCount++; //Positive-Negative combinations count as a single trait essentialy
 		}
-		// if(%typeStr $= "positive" && !isObject($gunmanChar) && getRandom() <= 0.1)
-		// {
-		// 	%trait = "Chekhov's Gunman";
-		// 	$gunmanChar = %character;
-		// }
-		// else
-		// {
+		if(%typeStr $= "positive" && !isObject($gunmanChar) && getRandom() <= 0.01)
+		{
+			%trait = "Chekhov's Gunman";
+			$gunmanChar = %character;
+		}
+		else
+		{
 			%trait = getField(%type[%typeStr], %index = getRandom(0, getFieldCount(%type[%typeStr]) - 1));
 			%type[%typeStr] = removeField(%type[%typeStr], %index);
-		// }
+		}
 
 		//Check if we picked conflicting traits
 		if(checkTraitConflicts(%character.traitList, %trait))
@@ -198,6 +200,54 @@ function Player::traitSchedule(%obj)
 			}
 		}
 	}
+	if(%obj.character.trait["Narcoleptic"] && %obj.unconscious)
+	{
+		%center = %obj.getEyePoint();
+		initContainerRadiusSearch(%center, 48, $TypeMasks::PlayerObjectType);
+		while (isObject(%found = containerSearchNext()))
+		{
+			if(%found == %obj || %found.getState() $= "Dead")
+				continue;
+			%point = %found.getEyePoint();
+			%ray = containerRayCast(%center, %point, $TypeMasks::FxBrickObjectType, %obj);
+
+			if(!isObject(%ray) && %obj.isWithinView(%point)) //So you can't "detect presence" of the killer sneaking up on you or something.
+			{
+				%stress++; //More people = more stress
+			}
+		}
+
+		if(%stress)
+		{
+			if(!%obj.client.killer && !isEventPending(%obj.passOutSchedule) && %obj.anxiety > 3 && $Sim::Time - %obj.lastKO > 60)
+			{
+				messageClient(%obj.client, '', "\c5You're about to pass out due to your \c3Narcolepsy\c5...");
+				%obj.passOutSchedule = %obj.schedule(6000, knockOut, 20);
+				%obj.anxiety = 0;
+			}
+			else if(getRandom() < 0.05 * %stress)
+			{
+				if($Sim::Time - %obj.client.lastEmoteTime >= 10)
+					%obj.anxiety = 0;
+				%obj.anxiety++;
+				if(%obj.anxiety == 1)
+					%level = "\c3a bit ";
+				else if(%obj.anxiety == 2)
+				{
+					%level = "\c3pretty ";
+					if ($Sim::Time - %obj.lastMoodChange > 10)
+						%obj.addMood(-2);
+				}
+				else if(%obj.anxiety >= 3)
+				{
+					%level = "\c0very ";
+					if ($Sim::Time - %obj.lastMoodChange > 10)
+						%obj.addMood(-5);
+				}
+
+			}
+		}
+	}
 	if(%obj.character.trait["Schizo"])
 	{
 		%random = GameCharacters.getObject(getRandom(0, GameCharacters.getCount()-1));
@@ -214,11 +264,11 @@ function Player::traitSchedule(%obj)
 			%type[%high++] = "whispers";
 			%type[%high++] = "says";
 			%type[%high++] = "yells";
-			%type[%high++] = "stammers";
+			%type[%high++] = "says";
 			%type[%high++] = "radios";
 			%type = %type[getRandom(%high)];
 			%time = getDayCycleTimeString(getRandom() * 1.5, 1);
-			messageClient(%obj.client, '', '\c7[%1]<color:ffff80>%2 %3<color:fffff0>, %4', %time, "Unknown", %type, getDreamText() SPC getDreamText() SPC getDreamText() SPC getDreamText());
+			messageClient(%obj.client, '', '\c7[%1]<color:ffff80>%2 %3<color:fffff0>, %4', %time, "Someone", %type, getDreamText() SPC getDreamText() SPC getDreamText() SPC getDreamText());
 		}
 	}
 	if(%obj.character.trait["Cold"])
@@ -246,6 +296,10 @@ function Player::traitSchedule(%obj)
 	}
 	%obj.traitSchedule = %obj.schedule(getMax(500, $Despair::Traits::Tick), traitSchedule, %obj);
 }
+	
+
+
+
 
 function checkTraitConflicts(%list, %trait)
 {
@@ -259,6 +313,8 @@ function checkTraitConflicts(%list, %trait)
 	%conflicts[%c++] = "Optimistic	Mood Swings	Melancholic	Apathetic";
 	%conflicts[%c++] = "Loudmouth	Softspoken";
 	%conflicts[%c++] = "Repairman	Gang Member";
+	%conflicts[%c++] = "Narcoleptic	Social Anxiety";
+	%conflicts[%c++] = "Narcoleptic	Squeamish";
 
 	%v = -1;
 	while(%v++ <= %c)

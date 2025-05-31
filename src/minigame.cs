@@ -430,8 +430,8 @@ function despairPrepareGame()
 	}
 
 	//Reset Guest list
-	//%brick = BrickGroup_888888.NTObject["_guestlist", 0];
-	//%brick.setItem("");
+	%brick = BrickGroup_888888.NTObject["_guestlist", 0];
+	%brick.setItem("");
 
 	for (%i = 0; %i < 24; %i++)
 	{
@@ -590,13 +590,13 @@ function despairCycleStage(%stage)
 	if(%stage $= "MORNING")
 	{
 		%high = -1;
-		%choice[%high++] = "Did you know we have a <a:discord.gg/W4rSDac>Discord</a>\c6 channel? Join the discussion!";
+		%choice[%high++] = "Did you know we have a <a:discord.gg/9gDaarJ>Discord</a>\c6 channel? Join the discussion!";
 		%choice[%high++] = "\c3/help\c6 contains a lot of useful gameplay information and tips. Check it out!";
-		%choice[%high++] = "Sometimes, it's better to team up with someone instead of going solo. Be careful of traitors, though!";
-		%choice[%high++] = "Pay close attention to your surroundings. You never know what could be used as evidence!";
+		%choice[%high++] = "Did you know you can create a custom character with /cc command";
+		%choice[%high++] = "Did you know we have a <a:discord.gg/9gDaarJ>Discord</a>\c6 channel? Join the discussion!";
 		%choice[%high++] = "Murder weapon and blood contain a lot more information that you may initially think. Don't write them off!";
 		%choice[%high++] = "Once investigation period starts, weapons are disabled, but non-standard murders may still happen!";
-		%choice[%high++] = "You can spamclick people to shove them!";
+		%choice[%high++] = "You can spamclick people to shove them!";	
 		%choice[%high++] = "\c3Investigatives\c6 are incredibly helpful! They can tell time of death, number and type of cuts, choking victims and all the like!";
 		%choice[%high++] = "If you survive and win as an innocent, you will keep your character AND your room number!";
 		%choice[%high++] = "Cleaning up the crime scene is impossible once investigation starts.";
@@ -609,8 +609,9 @@ function despairCycleStage(%stage)
 		%choice[%high++] = "Fibers can be dropped when you swing your weapon, you get hit or you interact with a body! They also drop if you sleep.";
 		%choice[%high++] = "Fibers take on the color of your hair, your clothes and your shoes. Coats and hair-hiding masks obscure fibers.";
 		%choice[%high++] = "You can fake dying messages if you get your hands bloody and /write!";
-		%choice[%high++] = "Discussing alibis during investigation is a TERRIBLE idea! Use the time you are given to find \c3physical evidence\c6!";
+		%choice[%high++] = "Discussing alibis during investigation is a TERRIBLE idea! Use the time you are given to find \c3physical evidence\6!";
 		%choice[%high++] = "Alibi = a person's movements and actions druing a specified period, usually the approximate Time of Death.";
+		%choice[%high++] = "Did you know Killer can fake speed with /fakespeed tired or exhausted command.";
 		%choice[%high++] = "We also have a <a:https://despair-fever.fandom.com/wiki/Despair_Fever_Wiki>Wiki</a>\c6!";
 
 		$DefaultMiniGame.chatMessageAll('', '\c5~~[Day \c3%1\c5]\c6 Good morning, everyone! %2', $days, %choice[getRandom(%high)]);
@@ -685,7 +686,7 @@ package DespairFever
 		if (!$DefaultMiniGame.owner && $DefaultMiniGame.numMembers == 2)
 			despairPrepareGame();
 
-		messageClient(%client, '', '\c5--> \c4Please read \c3/rules\c4 and \c3/help\c4!', %client.getPlayerName());
+		messageClient(%client, '', '\c5--> \c4Please read \c3/rules\c4 and \c3/help\c4!', %this.getPlayerName());
 		commandToClient(%client, 'messageBoxOK', "Welcome!", "Please read /rules and /help!");
 		if(!$pickedKiller && (!$defaultMiniGame.permaDeath || $defaultMiniGame.winRounds <= 0))
 			createPlayer(%client);

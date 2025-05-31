@@ -130,7 +130,7 @@ function GenericBulletWeapon::onFire(%image, %player)
 
     if (%image.bulletSpeed !$= "")
         %speed = %image.bulletSpeed;
-    
+
     %damage = %image.damage;
     
     %spread = %image.bulletSpread;
@@ -199,7 +199,9 @@ function GenericBulletWeapon::onFire(%image, %player)
 
     if (%player.client)
         %player.client.updateBottomPrint();
-
+	
+	if(getRandom() < 0.3)
+		%player.spawnFiber();
     return true;
 }
 

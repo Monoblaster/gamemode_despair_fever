@@ -1,0 +1,610 @@
+This is a Blockland save file.  You probably shouldn't modify it cause you'll screw it up.
+1
+
+0.803922 0.137255 0.137255 1.000000
+0.874510 0.349020 0.121569 1.000000
+1.000000 0.647059 0.113725 1.000000
+0.937255 0.839216 0.137255 1.000000
+0.211765 0.709804 0.156863 1.000000
+0.219608 0.713726 0.701961 1.000000
+0.129412 0.454902 0.686275 1.000000
+0.137255 0.286275 0.494118 1.000000
+0.031373 0.101961 0.176471 1.000000
+0.803922 0.137255 0.137255 0.509804
+0.874510 0.349020 0.121569 0.509804
+0.937255 0.839216 0.137255 0.509804
+0.211765 0.709804 0.156863 0.509804
+0.219608 0.713726 0.701961 0.509804
+0.129412 0.454902 0.686275 0.509804
+0.419608 0.109804 0.776471 0.509804
+0.301961 0.376471 0.556863 0.509804
+0.501961 0.611765 0.627451 0.509804
+0.439216 0.109804 0.886275 1.000000
+0.886275 0.184314 1.000000 1.000000
+0.921569 0.513726 0.674510 1.000000
+1.000000 0.666667 0.529412 1.000000
+1.000000 0.831373 0.403922 1.000000
+1.000000 0.901961 0.694118 1.000000
+0.764706 0.674510 0.466667 1.000000
+0.584314 0.309804 0.039216 1.000000
+0.392157 0.192157 0.000000 1.000000
+0.176471 0.101961 0.356863 1.000000
+0.337255 0.015686 0.015686 1.000000
+0.584314 0.094118 0.094118 1.000000
+0.866667 0.556863 0.101961 1.000000
+0.101961 0.329412 0.164706 1.000000
+0.062745 0.200000 0.094118 1.000000
+0.129412 0.376471 0.109804 1.000000
+0.066667 0.219608 0.054902 1.000000
+0.858824 0.858824 0.858824 0.313726
+0.211765 0.301961 0.313726 1.000000
+0.368627 0.458824 0.466667 1.000000
+0.286275 0.254902 0.219608 1.000000
+0.392157 0.349020 0.301961 1.000000
+0.541176 0.486275 0.419608 1.000000
+0.227451 0.274510 0.054902 1.000000
+0.400000 0.486275 0.149020 1.000000
+0.603922 0.709804 0.286275 1.000000
+1.000000 1.000000 1.000000 0.003922
+0.858824 0.858824 0.858824 1.000000
+0.756863 0.756863 0.756863 1.000000
+0.619608 0.619608 0.619608 1.000000
+0.494118 0.494118 0.494118 1.000000
+0.329412 0.329412 0.329412 1.000000
+0.200000 0.200000 0.200000 1.000000
+0.078431 0.078431 0.078431 1.000000
+0.000000 0.000000 0.000000 1.000000
+0.376471 0.376471 0.376471 0.313726
+0.839216 0.713726 0.549020 1.000000
+0.776471 0.603922 0.376471 1.000000
+0.721569 0.521569 0.254902 1.000000
+0.600000 0.427451 0.219608 1.000000
+0.439216 0.313726 0.156863 1.000000
+0.266667 0.192157 0.094118 1.000000
+0.176471 0.121569 0.062745 1.000000
+0.419608 0.258824 0.149020 1.000000
+0.247059 0.137255 0.066667 1.000000
+1.000000 0.000000 1.000000 0.000000
+Linecount 454
+64x64 Base" 61 33.5 0.1 1 1 45  0 0 1 1 1
+16x Cube" 2.5 -35.5 4 1 1 0  0 0 1 1 1
+1x1F Print" 73.75 34.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F" 47.25 35.25 0.3 0 0 0  0 0 1 0 0
++-NTOBJECTNAME _evidence
++-ITEM Paper" 0 2 4000
+1x1F" 47.25 41.25 0.3 0 0 0  0 0 1 0 0
++-NTOBJECTNAME _randomItem
++-ITEM Lockpick" 0 2 1000
+1x1F Print" 49.25 44.75 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x1F Print" 49.25 44.25 0.3 1 0 0 Letters/D 0 0 1 1 1
+1x1F Print" 49.25 45.25 0.3 1 0 0 Letters/B 0 0 1 1 1
+1x1F Print" 52.25 29.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 32.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F" 47.25 38.25 0.3 0 0 57  0 0 1 0 0
++-NTOBJECTNAME _hatSpawn
++-ITEM Hat Wizard" 0 3 1000
+1x1F Print" 73.75 33.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 70.25 33.75 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x1F Print" 70.25 35.75 0.3 1 0 0 Letters/H 0 0 1 1 1
+1x1F Print" 70.25 36.25 0.3 1 0 0 Letters/S 0 0 1 1 1
+1x1F Print" 70.25 33.25 0.3 1 0 0 Letters/R 0 0 1 1 1
+1x1F Print" 45.25 27.75 0.3 1 0 0 Letters/F 0 0 1 1 1
+1x1F" 47.25 44.75 0.3 0 0 0  0 0 1 1 1
++-NTOBJECTNAME _bumSpawn
+1x6F" 50.5 43.25 0.3 3 0 3  0 0 1 1 1
+0.5x0.5F" 50.75 26.25 0.3 1 0 39  0 0 1 1 1
++-NTOBJECTNAME _furnace_smoke
+1x6F" 51 30.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 52.25 30.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 28.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 28.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 29.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.75 21.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F" 58.75 34.25 0.3 0 0 6  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	PaperItem			
++-ITEM Paper" 0 2 4000
+1x1F" 58.75 30.75 0.3 0 0 6  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	PaperstackItem			
++-ITEM Paper Stack" 0 2 4000
+1x1F Print" 73.75 35.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 73.75 33.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 73.75 35.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+2x2F Round" 47.5 32.5 0.3 2 0 39  0 0 1 1 1
++-NTOBJECTNAME _food
+1x2" 47.25 29.5 0.5 0 0 47  0 0 1 1 1
++-EVENT	0	1	onActivate	0	Player		setBloody	0	0	0	
++-EVENT	1	1	onActivate	0	Self		playSound	exitWaterSound			
++-EVENT	2	1	onActivate	200	Self		playSound	exitWaterSound			
+1x 1x2F Vertical Print" 47.25 26.25 0.5 1 0 48 Letters/-at 1 0 1 1 1
++-NTOBJECTNAME _furnace
+1x1 Print" 0.75 -31.75 8.3 2 0 0 Letters/A 0 0 1 1 1
+1x1 Print" 6.25 -31.75 8.3 2 0 0 Letters/I 0 0 1 1 1
+1x1 Print" 5.75 -31.75 8.3 2 0 0 Letters/N 0 0 1 1 1
+1x1 Print" 5.25 -31.75 8.3 2 0 0 Letters/T 0 0 1 1 1
+1x1 Print" 4.75 -31.75 8.3 2 0 0 Letters/R 0 0 1 1 1
+1x1 Print" 4.25 -31.75 8.3 2 0 0 Letters/O 0 0 1 1 1
+1x1 Print" 3.75 -31.75 8.3 2 0 0 Letters/-space 0 0 1 1 1
+1x1 Print" 3.25 -31.75 8.3 2 0 0 Letters/C 0 0 1 1 1
+1x1 Print" 2.75 -31.75 8.3 2 0 0 Letters/A 0 0 1 1 1
+1x1 Print" 2.25 -31.75 8.3 2 0 0 Letters/M 0 0 1 1 1
+1x1 Print" 1.75 -31.75 8.3 2 0 0 Letters/E 0 0 1 1 1
+1x1 Print" 1.25 -31.75 8.3 2 0 0 Letters/R 0 0 1 1 1
+1x1F" 46.75 23.25 0.3 1 0 0  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	ShovelItem			
++-ITEM Shovel" 0 2 4000
+1x1F Print" 45.75 47.25 0.3 1 0 0 Letters/M 0 0 1 1 1
+1x1F Print" 45.75 48.75 0.3 1 0 0 Letters/R 0 0 1 1 1
+1x1F Print" 45.75 47.75 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 45.75 48.25 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 45.75 46.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 48.75 0.3 1 0 0 Letters/S 0 0 1 1 1
+1x1F Print" 45.25 48.25 0.3 1 0 0 Letters/P 0 0 1 1 1
+1x1F Print" 45.25 47.75 0.3 1 0 0 Letters/A 0 0 1 1 1
+1x1F Print" 45.25 47.25 0.3 1 0 0 Letters/W 0 0 1 1 1
+1x1F Print" 45.25 46.75 0.3 1 0 0 Letters/N 0 0 1 1 1
+1x6F" 47 49.25 0.3 3 0 3  0 0 1 1 1
+1x6F" 47 46.25 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 49.25 47.75 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 49.25 48.25 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 49.25 47.25 0.3 1 0 0 Letters/M 0 0 1 1 1
+1x1F Print" 49.25 48.75 0.3 1 0 0 Letters/R 0 0 1 1 1
+1x1F Print" 49.25 46.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 47.75 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x6F" 50.5 46.25 0.3 3 0 3  0 0 1 1 1
+1x6F" 50.5 49.25 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 48.75 47.25 0.3 1 0 0 Letters/S 0 0 1 1 1
+1x1F Print" 48.75 48.25 0.3 1 0 0 Letters/L 0 0 1 1 1
+1x1F Print" 48.75 48.75 0.3 1 0 0 Letters/C 0 0 1 1 1
+1x1F Print" 48.75 46.75 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x1F Print" 52.75 47.75 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 52.75 48.25 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 52.75 47.25 0.3 1 0 0 Letters/M 0 0 1 1 1
+1x1F Print" 52.75 48.75 0.3 1 0 0 Letters/R 0 0 1 1 1
+1x1F Print" 52.75 46.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 47.75 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x6F" 54 46.25 0.3 3 0 3  0 0 1 1 1
+1x6F" 54 49.25 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 52.25 47.25 0.3 1 0 0 Letters/R 0 0 1 1 1
+1x1F Print" 52.25 48.25 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 52.25 48.75 0.3 1 0 0 Letters/D 0 0 1 1 1
+1x1F Print" 52.25 46.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 45.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x6F" 52.25 44.5 0.3 0 0 3  0 0 1 1 1
+1x1F Print" 48.75 44.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 49.25 45.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 45.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 55.75 47.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 49.25 43.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 44.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 55.75 47.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 55.75 48.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 55.75 48.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 55.75 46.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+2x2F Print" 50 44 0.3 1 0 41 Letters/-space 0 0 1 1 1
++-NTOBJECTNAME _bed
+2x2F Print" 51 44 0.3 1 0 41 Letters/-space 0 0 1 1 1
++-NTOBJECTNAME _bed
+1x1F Print" 48.75 46.25 0.3 1 0 0 Letters/T 0 0 1 1 1
+1x1F" 47.25 47.75 0.3 0 0 0  0 0 1 1 1
++-NTOBJECTNAME _r13_spawn
+1x1F" 50.75 47.75 0.3 0 0 1  0 0 1 1 1
++-NTOBJECTNAME _r13_closet
+Wood Plank Door" 54.25 47.5 2 2 0 50  0 0 1 1 1
++-NTOBJECTNAME _r13_door
++-EVENT	0	1	onActivate	0	Self		door	0			
+1x1F Print" 45.75 44.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 45.75 0.3 1 0 0 Letters/B 0 0 1 1 1
+1x1F Print" 45.75 45.25 0.3 1 0 0 Letters/U 0 0 1 1 1
+1x1F Print" 45.75 44.75 0.3 1 0 0 Letters/M 0 0 1 1 1
+1x1F Print" 45.25 45.75 0.3 1 0 0 Letters/S 0 0 1 1 1
+1x1F Print" 45.25 45.25 0.3 1 0 0 Letters/P 0 0 1 1 1
+1x1F Print" 45.25 44.75 0.3 1 0 0 Letters/A 0 0 1 1 1
+1x1F Print" 45.25 44.25 0.3 1 0 0 Letters/W 0 0 1 1 1
+1x1F Print" 45.25 43.75 0.3 1 0 0 Letters/N 0 0 1 1 1
+1x1F Print" 45.75 43.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 18.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x6F" 47 42.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 45.75 43.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F" 52.25 46.25 0.3 0 0 3  0 0 1 1 1
+1x1F Print" 45.75 19.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 43.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 43.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 21.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 43.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 42.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 19.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 20.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 21.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 41.25 0.3 1 0 0 Letters/N 0 0 1 1 1
+1x1F Print" 45.75 41.75 0.3 1 0 0 Letters/A 0 0 1 1 1
+1x1F Print" 45.75 40.75 0.3 1 0 0 Letters/D 0 0 1 1 1
+1x6F" 47 39.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 45.75 40.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 42.25 0.3 1 0 0 Letters/R 0 0 1 1 1
+1x1F Print" 45.25 41.25 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x1F Print" 48.75 41.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 41.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 41.75 0.3 1 0 0 Letters/T 0 0 1 1 1
+1x1F Print" 48.75 40.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 40.75 0.3 1 0 0 Letters/M 0 0 1 1 1
+1x1F Print" 45.25 40.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 42.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 42.25 0.3 1 0 0 Letters/I 0 0 1 1 1
+1x1F Print" 48.75 40.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 39.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 21.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 38.25 0.3 1 0 0 Letters/T 0 0 1 1 1
+1x1F Print" 45.75 38.75 0.3 1 0 0 Letters/A 0 0 1 1 1
+1x1F Print" 45.75 37.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x6F" 47 36.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 45.75 37.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 39.25 0.3 1 0 0 Letters/H 0 0 1 1 1
+1x1F Print" 45.25 38.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 38.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 38.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 38.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 37.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 37.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 37.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 39.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 39.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 37.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 36.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 19.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 35.25 0.3 1 0 0 Letters/I 0 0 1 1 1
+1x1F Print" 45.75 35.75 0.3 1 0 0 Letters/V 0 0 1 1 1
+1x1F Print" 45.75 34.75 0.3 1 0 0 Letters/D 0 0 1 1 1
+1x6F" 47 33.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 45.75 34.25 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x1F Print" 45.75 36.25 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x1F Print" 45.25 35.25 0.3 1 0 0 Letters/U 0 0 1 1 1
+1x1F Print" 48.75 35.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 35.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 35.75 0.3 1 0 0 Letters/L 0 0 1 1 1
+1x1F Print" 48.75 34.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 34.75 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x1F Print" 45.25 34.25 0.3 1 0 0 Letters/S 0 0 1 1 1
+1x1F Print" 48.75 36.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 36.25 0.3 1 0 0 Letters/C 0 0 1 1 1
+1x1F Print" 48.75 34.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 33.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 19.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 32.25 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 45.75 32.75 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 45.75 31.75 0.3 1 0 0 Letters/D 0 0 1 1 1
+1x6F" 47 30.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 45.75 31.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 33.25 0.3 1 0 0 Letters/F 0 0 1 1 1
+1x1F Print" 45.25 32.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 32.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 32.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 32.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 31.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 31.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 31.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 33.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 33.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 31.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 30.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 19.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 29.25 0.3 1 0 0 Letters/N 0 0 1 1 1
+1x1F Print" 45.75 29.75 0.3 1 0 0 Letters/I 0 0 1 1 1
+1x1F Print" 45.75 28.75 0.3 1 0 0 Letters/K 0 0 1 1 1
+1x6F" 47 27.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 45.75 28.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 30.25 0.3 1 0 0 Letters/S 0 0 1 1 1
+1x1F Print" 45.25 29.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x6F" 47 18.75 0.3 3 0 3  0 0 1 1 1
+2x2F Print" 50 45 0.3 1 0 41 Letters/-space 0 0 1 1 1
++-NTOBJECTNAME _bed
+1x1F Print" 45.25 29.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 20.75 0.3 1 0 0 Letters/M 0 0 1 1 1
+1x1F Print" 45.25 28.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 28.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+2x2F Print" 51 45 0.3 1 0 41 Letters/-space 0 0 1 1 1
++-NTOBJECTNAME _bed
+1x1F Print" 45.25 30.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 19.75 0.3 1 0 0 Letters/P 0 0 1 1 1
+1x1F Print" 48.75 27.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 20.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 26.25 0.3 1 0 0 Letters/-caret 0 0 1 1 1
+1x1F Print" 45.75 26.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 25.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x6F" 47 24.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 45.75 25.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 27.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 26.25 0.3 1 0 0 Letters/N 0 0 1 1 1
+1x1F Print" 48.75 26.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 26.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 26.75 0.3 1 0 0 Letters/R 0 0 1 1 1
+1x1F Print" 48.75 25.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 25.75 0.3 1 0 0 Letters/A 0 0 1 1 1
+1x1F Print" 45.25 25.25 0.3 1 0 0 Letters/C 0 0 1 1 1
+1x1F Print" 48.75 27.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 27.25 0.3 1 0 0 Letters/U 0 0 1 1 1
+1x1F Print" 48.75 25.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 24.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 20.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 23.25 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x1F Print" 45.75 23.75 0.3 1 0 0 Letters/W 0 0 1 1 1
+1x1F Print" 45.75 22.75 0.3 1 0 0 Letters/P 0 0 1 1 1
+1x6F" 47 21.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 45.75 22.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 24.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 23.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 23.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 23.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 23.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 22.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 22.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 22.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 24.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 24.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 22.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 21.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 20.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 20.25 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 49.25 29.25 0.3 1 0 0 Letters/W 0 0 1 1 1
+1x1F Print" 49.25 29.75 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 49.25 28.75 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x2" 50.75 29.5 0.5 0 0 6  0 0 1 1 1
++-EVENT	0	1	onActivate	0	Player		setBloody	0	0	0	
++-EVENT	1	1	onActivate	0	Self		playSound	exitWaterSound			
++-EVENT	2	1	onActivate	200	Self		playSound	exitWaterSound			
++-EVENT	3	1	onActivate	400	Self		playSound	exitWaterSound			
++-EVENT	4	1	onActivate	0	Player		_setStatusEffect	1	fresh		
+1x6F" 50.5 27.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 49.25 28.25 0.3 1 0 0 Letters/R 0 0 1 1 1
+1x1F Print" 49.25 30.25 0.3 1 0 0 Letters/H 0 0 1 1 1
+1x1F Print" 48.75 29.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 29.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 28.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 30.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 48.75 28.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 49.25 30.75 0.3 1 0 0 Letters/S 0 0 1 1 1
+1x1F Print" 52.25 27.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 45.25 24.75 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x1F Print" 49.25 26.25 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 49.25 25.75 0.3 1 0 0 Letters/K 0 0 1 1 1
+1x1F Print" 49.25 26.75 0.3 1 0 0 Letters/M 0 0 1 1 1
+1x6F" 50.5 24.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 49.25 27.25 0.3 1 0 0 Letters/S 0 0 1 1 1
+1x1F Print" 49.25 25.25 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x1F Print" 52.25 26.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 26.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 25.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 25.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 27.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 24.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F" 47.25 23.25 0.3 0 0 0  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	ScalpelItem			
++-ITEM Scalpel" 0 2 4000
+1x1F" 47.25 24.25 0.3 0 0 0  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	KnifeItem			
++-ITEM Knife" 0 2 4000
+1x1F" 48.25 24.25 0.3 0 0 0  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	AxeItem			
++-ITEM Axe" 0 2 4000
+1x1F" 48.25 23.25 0.3 0 0 0  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	BatItem			
++-ITEM Baseball Bat" 0 2 4000
+1x1F" 48.25 22.25 0.3 0 0 0  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	KatanaItem			
++-ITEM Katana" 0 2 4000
+1x1F" 47.25 22.25 0.3 0 0 0  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	LeadpipeItem			
++-ITEM Leadpipe" 0 2 4000
+1x1F" 46.25 22.25 0.3 0 0 0  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	SledgehammerItem			
++-ITEM Sledgehammer" 0 2 4000
+1x1F" 46.25 23.25 0.3 0 0 0  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	PipewrenchItem			
++-ITEM Pipewrench" 0 2 4000
+1x1F" 46.25 24.25 0.3 0 0 0  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	MacheteItem			
++-ITEM Machete" 0 2 4000
+1x1F" 47.75 23.25 0.3 0 0 0  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	UmbrellaItem			
++-ITEM Umbrella" 0 2 4000
+1x1F Print" 49.25 20.25 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x1F Print" 49.25 19.75 0.3 1 0 0 Letters/A 0 0 1 1 1
+1x1F Print" 49.25 20.75 0.3 1 0 0 Letters/L 0 0 1 1 1
+1x6F" 50.5 18.75 0.3 3 0 3  0 0 1 1 1
+1x6F" 50.5 21.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 49.25 19.25 0.3 1 0 0 Letters/N 0 0 1 1 1
+1x1F Print" 49.25 21.25 0.3 1 0 0 Letters/C 0 0 1 1 1
+1x1F Print" 52.25 20.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 20.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 19.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 19.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 21.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 18.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 21.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F" 47.25 20.25 0.3 0 0 0  0 0 1 0 0
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	mopItem			
++-ITEM Mop" 0 2 4000
+1x1F" 50.75 20.25 0.3 0 0 0  0 0 1 0 0
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	CleanSprayItem			
++-ITEM Clean Spray" 0 2 4000
+1x1F" 50.75 38.25 0.3 0 0 57  0 0 1 0 0
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	CoatItem			
++-ITEM Coat" 0 3 1000
+1x1F Print" 49.25 38.25 0.3 1 0 0 Letters/A 0 0 1 1 1
+1x1F Print" 49.25 38.75 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 49.25 37.75 0.3 1 0 0 Letters/T 0 0 1 1 1
+1x6F" 50.5 39.75 0.3 3 0 3  0 0 1 1 1
+1x6F" 50.5 36.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 49.25 37.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 49.25 39.25 0.3 1 0 0 Letters/C 0 0 1 1 1
+1x1F Print" 52.25 38.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 38.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 37.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 39.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 37.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 39.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.25 36.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F" 54.75 20.25 0.3 0 0 0  0 0 1 0 0
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	bloodpackItem			
++-ITEM Bloodpack" 0 2 4000
+1x1F Print" 53.25 20.25 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x1F Print" 53.25 20.75 0.3 1 0 0 Letters/L 0 0 1 1 1
+1x1F Print" 53.25 19.75 0.3 1 0 0 Letters/O 0 0 1 1 1
+1x6F" 54.5 18.75 0.3 3 0 3  0 0 1 1 1
+1x6F" 54.5 21.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 53.25 21.25 0.3 1 0 0 Letters/B 0 0 1 1 1
+1x1F Print" 53.25 19.25 0.3 1 0 0 Letters/D 0 0 1 1 1
+1x1F Print" 56.25 20.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.75 20.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.75 20.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.25 19.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.25 20.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.75 19.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.25 21.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.75 19.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.25 19.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.75 21.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.25 18.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.25 21.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 52.75 18.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 32.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 57.25 37.75 0.3 1 0 0 Letters/N 0 0 1 1 1
+1x1F Print" 57.25 37.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 57.25 38.25 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x6F" 58.5 39.25 0.3 3 0 3  0 0 1 1 1
+1x6F" 58.5 36.25 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 57.25 36.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 57.25 38.75 0.3 1 0 0 Letters/P 0 0 1 1 1
+1x1F Print" 60.25 37.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 37.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 38.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 37.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 37.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 38.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 36.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 38.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 36.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 38.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 36.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 39.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 36.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 39.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F" 58.75 37.75 0.3 0 0 6  0 0 1 1 1
++-EVENT	0	1	onMiniGameReset	0	Self		setItem	PenItem			
++-ITEM Pen" 0 2 4000
+1x1F Print" 57.25 34.25 0.3 1 0 0 Letters/P 0 0 1 1 1
+1x1F Print" 57.25 33.75 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x1F Print" 57.25 34.75 0.3 1 0 0 Letters/A 0 0 1 1 1
+1x6F" 58.5 35.75 0.3 3 0 3  0 0 1 1 1
+1x6F" 58.5 32.75 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 57.25 33.25 0.3 1 0 0 Letters/R 0 0 1 1 1
+1x1F Print" 57.25 35.25 0.3 1 0 0 Letters/P 0 0 1 1 1
+1x1F Print" 60.25 34.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 34.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 34.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 33.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 33.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 34.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 33.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 35.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 33.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 35.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 32.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 35.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 32.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 35.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 29.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 57.25 30.75 0.3 1 0 0 Letters/P 0 0 1 1 1
+1x1F Print" 57.25 30.25 0.3 1 0 0 Letters/E 0 0 1 1 1
+1x1F Print" 57.25 31.25 0.3 1 0 0 Letters/A 0 0 1 1 1
+1x6F" 58.5 32.25 0.3 3 0 3  0 0 1 1 1
+1x6F" 58.5 29.25 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 57.25 29.75 0.3 1 0 0 Letters/R 0 0 1 1 1
+1x1F Print" 57.25 31.75 0.3 1 0 0 Letters/P 0 0 1 1 1
+1x1F Print" 60.25 30.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 30.75 0.3 1 0 0 Letters/A 0 0 1 1 1
+1x1F Print" 56.75 31.25 0.3 1 0 0 Letters/T 0 0 1 1 1
+1x1F Print" 56.75 30.25 0.3 1 0 0 Letters/C 0 0 1 1 1
+1x1F Print" 60.25 30.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 31.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 29.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 56.75 31.75 0.3 1 0 0 Letters/S 0 0 1 1 1
+1x1F Print" 56.75 29.75 0.3 1 0 0 Letters/K 0 0 1 1 1
+1x1F Print" 60.25 31.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 60.25 29.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Round" 72.75 34.75 0.3 3 0 39  0 0 1 1 1
++-NTOBJECTNAME _shutter2
+1x1F Round" 71.75 33.75 0.3 2 0 39  0 0 1 1 1
++-NTOBJECTNAME _shutter6
+1x1F Round" 71.75 34.75 0.3 3 0 39  0 0 1 1 1
++-NTOBJECTNAME _shutter5
+1x1F Round" 72.75 35.75 0.3 3 0 39  0 0 1 1 1
++-NTOBJECTNAME _shutter1
+1x1F Round" 71.75 35.75 0.3 1 0 39  0 0 1 1 1
++-NTOBJECTNAME _shutter4
+1x1F Round" 72.75 33.75 0.3 0 0 39  0 0 1 1 1
++-NTOBJECTNAME _shutter3
+1x1F Print" 73.75 36.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 70.75 34.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 70.75 35.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 70.75 34.25 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x6F" 72 36.25 0.3 3 0 3  0 0 1 1 1
+1x6F" 72 33.25 0.3 3 0 3  0 0 1 1 1
+1x1F Print" 70.75 35.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 70.75 33.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 73.75 34.75 0.3 1 0 0 Letters/-space 0 0 1 1 1
+1x1F Print" 70.25 34.75 0.3 1 0 0 Letters/T 0 0 1 1 1
+1x1F Print" 70.25 34.25 0.3 1 0 0 Letters/T 0 0 1 1 1
+1x1F Print" 70.25 35.25 0.3 1 0 0 Letters/U 0 0 1 1 1
+1x1 Print" 64.25 32.75 0.5 1 0 45 Letters/-period 0 0 1 1 1
+1x1 Print" 64.25 31.75 0.5 1 0 45 Letters/S 0 0 1 1 1
+1x1 Print" 64.25 35.75 0.5 1 0 45 Letters/C 0 0 1 1 1
+1x1 Print" 64.25 33.75 0.5 1 0 45 Letters/I 0 0 1 1 1
+1x1 Print" 64.25 34.25 0.5 1 0 45 Letters/F 0 0 1 1 1
+1x1 Print" 64.25 34.75 0.5 1 0 45 Letters/N 0 0 1 1 1
+1x1 Print" 64.25 35.25 0.5 1 0 45 Letters/O 0 0 1 1 1
+1x1 Print" 64.25 33.25 0.5 1 0 45 Letters/G 0 0 1 1 1
+1x1F Print" 46.25 34.25 0.3 1 0 45 Letters/-qmark 0 0 1 1 1
+1x1F Print" 49.75 25.25 0.3 1 0 45 Letters/-qmark 0 0 1 1 1
+1x1F Print" 49.75 28.25 0.3 1 0 45 Letters/-qmark 0 0 1 1 1
+1x1 Print" 64.25 32.25 0.5 1 0 45 Letters/C 0 0 1 1 1
+1x1F Print" 45.75 31.25 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>   food spawns food to eat to increase mood (raycasting must be on)			
+1x1F Print" 49.75 28.25 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>   Shower events to clean and increase Mood to fresh from a good shower			
+1x1F Print" 45.75 25.25 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>   furnace  is to set as furnace for killer to burn things  (raycasting must be on)			
+1x1F Print" 46.25 34.25 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>  evidence random evidence clue written on piece of paper   (raycasting must be on and paper item)			
+1x1F Print" 49.75 25.25 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>   furnace_smoke   spawns smoke when furnace is in use (raycasting must be on)			
+1x1F Print" 45.75 22.25 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>  Weapon Spawn Events			
+1x1F Print" 45.75 19.25 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>  Mop Spawn Event			
+1x1F Print" 49.25 18.75 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>  Clean Spray Spawn Event			
+1x1F Print" 53.25 18.75 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>  Bloodpack when used makes a big mess of blood			
+1x1F Print" 70.75 33.25 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>  To enable and Configure Shutters enable them in map config for example $shutterNum[1] = "Gym"  and  $shutterNum[2] = "Gate 2 "			
+1x1F Print" 49.25 37.25 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>   Coat use event to choose where you want a Coat to spawn			
+1x1F Print" 45.75 37.25 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>   hatSpawn spawns a random hat  (raycasting must be on)			
+1x1F Print" 45.75 40.25 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>   randomItem  spawns a random item (raycasting must be on)			
+1x1F Print" 49.25 43.75 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>   bed  Sleepin in bed improves mood and prevents sore back make sure to name all beds as bed			
+1x1F Print" 45.75 43.25 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>   bumSpawn  is used for players who do not have a room 			
+1x1 Print" 64.25 34.75 1.1 1 0 45 Letters/-space 0 0 1 1 1
+1x1F Print" 45.75 46.75 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>  Make sure to configure keys for each room in the config.cs  for example $roomNum[1] = "B1"   is a key for room B1			
+1x1F Print" 49.25 46.75 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>  Make sure each room has a closet for each player with a room the brick should have Raycasting set ON			
+1x1F Print" 52.75 46.75 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>  You can have multiple locked doors for the same player provided they have the same name			
+1x1F Print" 45.75 28.25 0.5 1 0 45 Letters/-qmark 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF>   Sink Events to clean blood			
+1x1 Print" 64.25 34.75 1.7 1 0 0 Letters/-bang 0 0 1 1 1
++-EVENT	0	1	onActivate	0	Client		ChatMessage	<color:FFFFFF> Make sure to configure your settings for your if($map $= "example")  in config.cs  with your room key names and settings			

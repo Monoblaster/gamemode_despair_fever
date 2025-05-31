@@ -47,7 +47,7 @@ function serverCmdCustomChar(%this, %do)
         enterCharacterCreation(%this);
 		return;
 	}
-	%message = "\c2Are you sure you want to customize your character?\nIt costs 15 points!\nYou will need to finish your character before night hits!\nYou can also use /customname <firstname> <lastname> which costs 5 points.";
+	%message = "\c2Are you sure you want to customize your character?\nIt costs 15 points!\nYou will need to finish your character before night hits!\nYou can also use /customname <firstname> <lastname> which costs 10 points.";
 	commandToClient(%this, 'messageBoxYesNo', "CustomChar", %message, 'CustomCharAccept');
 }
 function serverCmdCustomCharAccept(%this)
@@ -82,16 +82,16 @@ function serverCmdCustomName(%this, %firstname, %lastname)
 		messageClient(%this, '', '\c5You must use more than a single letter for your name!');
 		return;
 	}
-	if (!%this.SpendPoints(5))
+	if (!%this.SpendPoints(10))
 	{
-		messageClient(%this, '', '\c5Not enough points! You need \c35 points\c5 to use this command.');
+		messageClient(%this, '', '\c5Not enough points! You need \c310 points\c5 to use this command.');
 		return;
 	}
 	//Make 'em correct
 	%firstname = strupr(getSubStr(%firstname, 0, 1)) @ strlwr(getSubStr(%firstname, 1, strlen(%lastname)));
 	%lastname = strupr(getSubStr(%lastname, 0, 1)) @ strlwr(getSubStr(%lastname, 1, strlen(%lastname)));
 	%this.character.name = %firstname SPC %lastname;
-	messageClient(%this, '', '\c5You spent \c35 points\c5 and set your new name to %1.', %this.character.name);
+	messageClient(%this, '', '\c5You spent \c310 points\c5 and set your new name to %1.', %this.character.name);
 }
 
 function serverCmdStats(%this, %target)
@@ -227,8 +227,8 @@ function serverCmdSpectate(%this)
 	}
 	if ($investigationStart !$= "")
 	{
-        	messageClient(%this, '', '\c5You cannot spectate - the investigation is in progress!');
-        	return;
+        messageClient(%this, '', '\c5You cannot spectate - the investigation is in progress!');
+        return;
 	}
 	%this.spectating = !%this.spectating;
 	messageClient(%this, '', '\c5You are \c6%1\c5 spectating.', %this.spectating ? "now" : "no longer");
@@ -462,19 +462,12 @@ function updateAdminCount()
 	}
 	if($Pref::Server::Password $= "" && !%admins)
 	{
-		$Pref::Server::Name = strReplace($Pref::Server::Name, " [No Admins]", "") SPC "[No Admins]";
-		$Pref::Server::Password = "a";
-        DespairSetPermadeath(true);
-		messageAll('', '\c0The server has been passworded due to \c6No Admins\c0. You will be kicked on \c6killer victory\c0 or when \c6nobody else is alive\c0.');
-		messageAll('', '\c0ALL RULE-BREAKERS WILL BE PUNISHED EVEN IF THERE ARE NO ADMINS!!!');
-		RS_Log("Last admin left the game, locking server.", "\c2");
+		$Pref::Server::Name = strReplace($Pref::Server::Name, "!", "") SPC "!";
+		$Pref::Server::Password = "";
 	}
 	else if($Pref::Server::Password $= "a" && %admins)
 	{
-		$Pref::Server::Name = strReplace($Pref::Server::Name, " [No Admins]", "");
 		$Pref::Server::Password = "";
-		if($DefaultMiniGame.permaDeath)
-        	DespairSetPermadeath(false);
 	}
 	webcom_postServer();
 }
@@ -536,6 +529,38 @@ function ServerCmdPlaySong(%this, %profile)
 	messageAll('', '\c6%1\c2 has played song \c3%2\c2.', %this.getPlayerName(), %proifle);
 }
 
+function serverCmdForgive(%this, %target) 
+ {
+	if (!%this.isAdmin)
+	{
+        return; 
+    }
+	if ($despairTrial !$= "")
+    {
+        messageClient(%this, '', '\c5A trial is in progress!'); 
+        return; 
+    }
+	if ($investigationStart !$= "")
+	{
+		messageClient(%this, '', '\c5investigation is in progress!');
+		return;
+	}
+	%target = findclientbyname(%target); 
+	if (!isObject(%target)) 
+    {
+		messageClient(%this, '', '\c5Invalid target!'); 
+		return; 
+    }
+        
+    RS_Log(%this.getPlayerName() SPC "(" @ %this.getBLID() @ ") used /forgive '" @ %target.getPlayerName() SPC "(" @ %target.getBLID() @ ")'", "\c2"); 
+    messageClient(%this, '', '\c5You have forgiven %1.', %target.getPlayerName()); 
+    messageClient(%target, '', '\c5You were forgiven, and all RDM penalties have been removed.'); 
+    if (isObject(%target.player)) 
+    {
+		%target.player.noWeapons = false; 
+    }
+ }
+ 
 package DespairAdmins
 {
 	function GameConnection::onClientLeaveGame(%this)
