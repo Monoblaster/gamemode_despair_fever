@@ -273,7 +273,7 @@ function FeverProjectile::onCollision(%data, %projectile, %object, %fade, %posit
     }
 
     serverPlay3d("ImpactFleshSound", %position);
-    %object.damage(%projectile, %position, %projectile.damage, %projectile.image.type);
+    %object.damage(%projectile.source.player, %position, %projectile.damage, %projectile.image.type);
     sprayBloodFromHit(%position, VectorScale(%velocity, 0.2), %object);
 }
 
