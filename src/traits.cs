@@ -321,10 +321,10 @@ function checkTraitConflicts(%list, %trait)
 	{
 		if (findField(%conflicts[%v], %trait) != -1)
 		{
-			%conflist = %conflicts[%v];
-			break;
+			%conflist = %conflist TAB %conflicts[%v];
 		}
 	}
+	%conflist = trim(%conflist);
 
 	for(%i = 0; %i < getFieldCount(%list); %i++)
 	{
